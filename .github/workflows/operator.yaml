@@ -1,12 +1,14 @@
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'     
+      numOctocats:
+        description: 'Number of Octocats'
+        required: false
+        default: '1'
+      octocatEyeColor:
+        description: 'Eye color of the Octocats'
         required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'
+
   
 jobs:
   test:
