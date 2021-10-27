@@ -1,4 +1,4 @@
-on: 
+on:
   workflow_dispatch:
     inputs:
       logLevel:
@@ -7,7 +7,7 @@ on:
         default: 'warning'
       tags:
         description: 'Test scenario tags'
- 
+  
 jobs:
   test:
     name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
@@ -29,4 +29,3 @@ jobs:
         npm install
         npm run build --if-present
         npm test
- 
