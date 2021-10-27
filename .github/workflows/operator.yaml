@@ -13,7 +13,7 @@ jobs:
       - name: Run a one-line script
         run: |
           echo '::warning:: this is a warning'
-          echo "FOO: ${INPUT_FOO}"
+          echo "FOO: ${INPUT_foo}"
         
       
     
