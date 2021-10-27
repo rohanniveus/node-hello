@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Run a one-line script
         run: |
-          echo "FOO: $MY_VAR"
+          echo "FOO: ${INPUT_FOO}"
         shell: bash
         env:
           MY_VAR: ${{ inputs.foo }} 
