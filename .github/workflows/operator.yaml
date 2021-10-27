@@ -1,18 +1,19 @@
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
-      foo:
-        description: 'Test input'
-        required: true
-
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
   
 jobs:
-  test:
+  print-username:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Run a one-line script
-        run: |
-          echo '${{ inputs.foo }}'
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.username }}
           
         
       
