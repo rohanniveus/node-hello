@@ -12,9 +12,8 @@ jobs:
     steps:
       - name: Run a one-line script
         run: |
+          echo '::warning:: this is a warning'
           echo "FOO: ${INPUT_FOO}"
-        shell: bash
-        env:
-          MY_VAR: ${{ inputs.foo }} 
+        
       
     
