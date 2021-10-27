@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Run a one-line script
         run: |
-          echo 'INPUT_FOO'
+          echo '${{ inputs.foo }}'
           
         
       
