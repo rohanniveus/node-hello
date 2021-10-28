@@ -29,5 +29,13 @@ jobs:
       - name: Print the input name to STDOUT
         run: echo The username is ${{ github.event.inputs.username }}
         
+  after-deploy:
+    runs-on: ubuntu-latest
+    needs: [print-username]
+    if: github.event.inputs.username == $oper1
+    steps:
+      - name: chell
+        run: echo sucess
+        
       
     
