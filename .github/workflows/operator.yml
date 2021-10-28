@@ -26,7 +26,7 @@ jobs:
           oper1=$(grep BUSSR list)
           echo $oper1
       - id: step4
-        run: echo "::set-output name=test::$(echo 1)"  
+        run: echo "::set-output name=test::$(echo $oper1)"  
   job2:
     runs-on: ubuntu-latest
     needs: job1
