@@ -19,4 +19,5 @@ jobs:
         run: | 
          oper1=$(grep ${{ github.event.inputs.username }} list)
          echo $oper1
-         run: ${{ github.event.inputs.username }} == $oper1
+      - name: COmpare   
+        if: ${{ github.event.inputs.username }} == $oper1
