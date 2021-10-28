@@ -22,7 +22,9 @@ jobs:
       - id: step2
         run: echo "::set-output name=test::world"
       - id: step3
-        run: echo "::set-output name=test::oper1=$(grep BUSSR operators)"
+        run: |
+          oper1=$(grep BUSSR list)
+          echo $oper1
       - id: step4
         run: echo "::set-output name=test::$oper1"  
   job2:
