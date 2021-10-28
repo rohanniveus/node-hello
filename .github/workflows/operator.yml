@@ -1,19 +1,23 @@
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        description: 'Environment'
-        required: true
-        default: 'dev,staging,[uat],prod'
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
   
 jobs:
   print-username:
     runs-on: ubuntu-latest
 
     steps:
+      - name: condition 1
+        if: "contains(github.event.inputs.username, 'BUSSR')"
+        run: echo 'BUSSR'
+      
       - name: Print the input name to STDOUT
-        run: echo The username is ${{ github.event.inputs.environment }}
-          
+        run: echo The username is ${{ github.event.inputs.username }}
         
       
     
