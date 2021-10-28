@@ -1,0 +1,20 @@
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
+  
+jobs:
+  print-username:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ github.event.inputs.username }}
+      - uses: actions/checkout@v1
+        run: | 
+         oper1=$(grep BUSSR operators)
+         echo $oper1
