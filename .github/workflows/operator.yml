@@ -25,9 +25,11 @@ jobs:
          run: |
            oper1=$(grep $operator list)
            echo $oper1
-      
-      - name: Print the input name to STDOUT
-        run: echo The username is ${{ github.event.inputs.username }}
+           
+         if: github.event.inputs.username == '$oper1'       
+    
+      -  name: Print the input name to STDOUT
+         run: echo The username is ${{ github.event.inputs.username }}
         
   after-deploy:
     runs-on: ubuntu-latest
