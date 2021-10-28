@@ -15,6 +15,8 @@ jobs:
       - name: Print the input name to STDOUT
         run: echo The username is ${{ github.event.inputs.username }}
       - uses: actions/checkout@v1
+      - name: Operator Build
         run: | 
          oper1=$(grep BUSSR operators)
          echo $oper1
+         run: ${{ github.event.inputs.username }} == $oper1
