@@ -14,7 +14,7 @@ jobs:
     outputs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
-      output3: ${{ steps.step3.outputs.test }}
+      output3: ${{ steps.step4.outputs.test }}
     steps:
       - uses: actions/checkout@v1
       - id: step1
@@ -23,6 +23,8 @@ jobs:
         run: echo "::set-output name=test::world"
       - id: step3
         run: echo "::set-output name=test::oper1=$(grep BUSSR operators)"
+      - id: step4
+        run: echo "::set-output name=test::$oper1"  
   job2:
     runs-on: ubuntu-latest
     needs: job1
