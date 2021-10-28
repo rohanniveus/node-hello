@@ -10,11 +10,21 @@ on:
 jobs:
   print-username:
     runs-on: ubuntu-latest
+    env:
+      operator: ${{ github.event.inputs.username }}
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - name: condition 1
         if: "contains(github.event.inputs.username, 'BINA')"
         run: echo 'BUSSR'
+        
+      -  name: Check with operator
+         run: |
+           oper1=$(grep $operator list)
+           echo $oper1
       
       - name: Print the input name to STDOUT
         run: echo The username is ${{ github.event.inputs.username }}
