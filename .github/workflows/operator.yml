@@ -37,7 +37,6 @@ jobs:
            echo $oper1
            
       -  name: Compare  
-         if: operator = $oper1
          run: echo sucess
     
       -  name: Print the input name to STDOUT
