@@ -17,6 +17,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: Operator Build
         run: | 
-         oper1=$(grep BUSSR operators)
+         oper1=$(grep ${{ github.event.inputs.username }} list)
          echo $oper1
          run: ${{ github.event.inputs.username }} == $oper1
