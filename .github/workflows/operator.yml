@@ -8,14 +8,14 @@ on:
         type: string
   
 jobs:
-  print-username:
-    runs-on: ubuntu-latest
-    env:
-      operator: ${{ github.event.inputs.username }}
-    outputs:
-      output1: ${{ steps.step1.outputs.test }}
+  job1:
+      runs-on: ubuntu-latest
+      env:
+        operator: ${{ github.event.inputs.username }}
+      outputs:
+        output1: ${{ steps.step1.outputs.test }}
     
-    steps:
+      steps:
     
       - id: step1
         run: echo "::set-output name=test::$oper1"
@@ -42,9 +42,9 @@ jobs:
       -  name: Print the input name to STDOUT
          run: echo The username is ${{ github.event.inputs.username }}
         
-  after-deploy:
+  job2:
     runs-on: ubuntu-latest
-    needs: [print-username]
+    needs: [job1]
     if: github.event.inputs.username == 'BUSSR'
     steps:
       - name: chell
