@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: condition 1
-        if: "contains(github.event.inputs.username, 'BUSSR')"
+        if: "contains(github.event.inputs.username, 'BINA')"
         run: echo 'BUSSR'
       
       - name: Print the input name to STDOUT
