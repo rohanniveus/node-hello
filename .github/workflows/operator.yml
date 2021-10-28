@@ -26,7 +26,9 @@ jobs:
            oper1=$(grep $operator list)
            echo $oper1
            
-         if: github.event.inputs.username == '$oper1'       
+      -  name: Compare  
+         if: github.event.inputs.username == '$oper1'
+         run: echo sucess
     
       -  name: Print the input name to STDOUT
          run: echo The username is ${{ github.event.inputs.username }}
