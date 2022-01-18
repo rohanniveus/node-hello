@@ -29,16 +29,16 @@ jobs:
          echo $PASS_WORD
          
             env:
-              PORT=8000
-              ROUTE_PREFIX=
-              LOG_LEVEL=info
-              NODE_ENV=local
-              MONGODB_URL=mongodb://mongodb:27017/testdb
-              NPM_TOKEN=REPLACE_WITH_YOUR_GITHUB_PERSONAL_ACCESS_TOKEN
-              JWT_ADMIN_SECRET=test1234
-              GCS_BUCKET_NAME=file-service-storage
-              GCS_PARENT_URL=https://storage.googleapis.com
-              GCS_KEYS_JSON=
+              PORT: 8000
+              ROUTE_PREFIX: 
+              LOG_LEVEL: info
+              NODE_ENV: local
+              MONGODB_URL: mongodb://mongodb:27017/testdb
+              NPM_TOKEN: REPLACE_WITH_YOUR_GITHUB_PERSONAL_ACCESS_TOKEN
+              JWT_ADMIN_SECRET: test1234
+              GCS_BUCKET_NAME: file-service-storage
+              GCS_PARENT_URL: https://storage.googleapis.com
+              GCS_KEYS_JSON: 
 
                     
                     
