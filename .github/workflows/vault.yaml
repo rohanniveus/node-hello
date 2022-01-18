@@ -13,16 +13,16 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Import Secrets
-              uses: hashicorp/vault-action@v2.3.1
-              with:
-                url: https://vaultbussr.niveussolutions.com:8200
-                token: ${{ secrets.VaultToken }}
-                secrets: |
-                    secret/devwebapp/config username | USER_NAME ;
-                    secret/devwebapp/config password | PASS_WORD ;
+      uses: hashicorp/vault-action@v2.3.1
+      with:
+        url: https://vaultbussr.niveussolutions.com:8200
+        token: ${{ secrets.VaultToken }}
+        secrets: |
+            secret/devwebapp/config username | USER_NAME ;
+            secret/devwebapp/config password | PASS_WORD ;
                     
     - name: Verify secrets
-       run: |
+      run: |
          if [ ${#USER_NAME} -lt 1 ]; then echo "error" ; exit; fi
          if [ ${#PASS_WORD} -lt 1 ]; then echo "error" ; exit; fi                 
                     
