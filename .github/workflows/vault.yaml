@@ -1,0 +1,39 @@
+on:
+  workflow_dispatch:
+  
+jobs:
+  test:
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: ['8', '10', '12']
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Import Secrets
+              uses: hashicorp/vault-action@v2.3.1
+              with:
+                url: https://vaultbussr.niveussolutions.com:8200
+                token: ${{ secrets.VaultToken }}
+                secrets: |
+                    secret/devwebapp/config username | USER_NAME ;
+                    secret/devwebapp/config password | PASS_WORD ;
+                    
+    - name: Verify secrets
+       run: |
+         if [ ${#USER_NAME} -lt 1 ]; then echo "error" ; exit; fi
+         if [ ${#PASS_WORD} -lt 1 ]; then echo "error" ; exit; fi                 
+                    
+                    
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node_version }}
+
+    - name: npm install, build and test
+      run: |
+        npm install
+        npm run build --if-present
+        npm test
